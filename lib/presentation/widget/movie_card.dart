@@ -1,34 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:naji_tutorial/model/product_model.dart';
+import 'package:naji_tutorial/model/movie_model.dart';
 
-class ProductCardWidget extends ListTile {
-  final ProductModel product;
+class MovieCardWidget extends ListTile {
+  final MovieModel movie;
 
-  const ProductCardWidget(this.product, {super.key, super.onTap});
+  const MovieCardWidget(this.movie, {super.key, super.onTap});
 
   @override
-  Widget? get title => Text(product.title);
+  Widget? get title => Text(movie.title);
 
   @override
   Widget? get subtitle => Text(
-        product.description,
+        movie.year,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
       );
 
   @override
-  Widget? get leading => Image.network(product.image, width: 50, height: 50);
+  Widget? get leading => movie.poster.contains("http")
+      ? Image.network(movie.poster, width: 50, height: 50)
+      : const Icon(Icons.movie);
 
   //@override
   //Widget build(BuildContext context) {
   //  return ListTile(
-  //    title: Text(product.title),
+  //    title: Text(Movie.title),
   //    subtitle: Text(
-  //      product.description,
+  //      Movie.description,
   //      maxLines: 2,
   //      overflow: TextOverflow.ellipsis,
   //    ),
-  //    leading: Image.network(product.image, width: 50, height: 50),
+  //    leading: Image.network(Movie.image, width: 50, height: 50),
   //  );
   //}
 }

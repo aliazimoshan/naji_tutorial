@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'presentation/page/product_page.dart';
+import 'presentation/movie/movie_page.dart';
 
 void main() {
   runApp(
@@ -16,10 +16,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NRDC Tutorial',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const ProductPage(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.dark,
+      //theme: ThemeData(
+      //  primarySwatch: Colors.blue,
+      //),
+      home: MoviePage(),
     );
   }
 }
