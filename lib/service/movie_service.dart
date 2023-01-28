@@ -5,7 +5,8 @@ import 'package:naji_tutorial/model/movie_model.dart';
 class MovieService {
   static Future<List<MovieModel>> get(String query) async {
     try {
-      String url = (APIEndpoint.movieList + query).replaceAll(" ", "%20");
+      String url =
+          (APIEndpoint.movieList + query).trim().replaceAll(" ", "%20");
       final Response response = await Dio().get(url);
       if (response.statusCode == 200) {
         //print(response.data);
