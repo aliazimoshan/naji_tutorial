@@ -7,7 +7,7 @@ import '../widget/movie_card.dart';
 class MoviePage extends ConsumerWidget {
   MoviePage({super.key});
   static int count = 0;
-  final TextEditingController controller = TextEditingController(text: "God");
+  final TextEditingController controller = TextEditingController(text: "game");
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,7 +22,10 @@ class MoviePage extends ConsumerWidget {
               child: TextFormField(
                 controller: controller,
                 decoration: const InputDecoration(hintText: "Search"),
-                onChanged: (value) => ref.watch(movieProvider(controller.text)),
+                onChanged: (value) {
+                  print(controller.text);
+                  return ref.refresh(movieProvider(controller.text));
+                },
               ),
             ),
             IconButton(
