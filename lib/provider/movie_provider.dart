@@ -4,7 +4,8 @@ import '../model/movie_model.dart';
 
 final movieProvider =
     FutureProvider.family<List<MovieModel>, String>((ref, query) async {
-  if (query.length >= 3) {
+  //print(query);
+  if (query.length >= 3 && query[query.length - 1] != " ") {
     List<MovieModel> movies = await MovieService.get(query);
     return movies;
   }
